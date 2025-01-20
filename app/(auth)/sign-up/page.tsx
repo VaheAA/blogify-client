@@ -1,29 +1,56 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import Link from 'next/link';
+'use client'
+import React from 'react'
+import { Button } from '@/components/ui/button'
+import { AppInput } from '@/components/app/AppInput'
+import Link from 'next/link'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { SignUpSchema, type TCreateUser } from '@/lib/validation'
 
 export default function SignupPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<TCreateUser>({
+    resolver: zodResolver(SignUpSchema),
+    mode: 'onChange'
+  })
+
+  const handleSignUp: SubmitHandler<TCreateUser> = async (values) => {
+    console.log(values)
+  }
 
   return (
     <div>
-      <form className="space-y-4">
+      <form onSubmit={handleSubmit(handleSignUp)} className="space-y-4">
         <div>
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="Enter your email" required />
+          <AppInput id="email" label="Email" register={register} error={errors.email?.message} />
         </div>
+
         <div>
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" placeholder="Create a password" required />
+          <AppInput
+            id="username"
+            label="Username"
+            register={register}
+            error={errors.username?.message}
+          />
         </div>
+
+        <div>
+          <AppInput
+            id="password"
+            label="Password"
+            register={register}
+            error={errors.password?.message}
+          />
+        </div>
+
         <Button type="submit" className="w-full">
           Sign up
         </Button>
       </form>
+
       <p className="text-center text-sm text-gray-600 mt-4">
         Already have an account?{' '}
         <Link href="/sign-in" className="text-blue-500 hover:underline">
@@ -31,5 +58,5 @@ export default function SignupPage() {
         </Link>
       </p>
     </div>
-  );
+  )
 }

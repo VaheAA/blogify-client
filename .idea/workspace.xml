@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/validation/schemas/signUp.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/app/AppButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/app/AppFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppFooter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/app/AppHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/app/AppInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/app/AppLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation/schemas/signIn.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/app/AppSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppSidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -32,12 +36,12 @@
     &quot;assignee&quot;: &quot;VaheAA&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VaheAA/blogify-client.git",
-    "accountId": "c9c46500-d0b1-4f55-89ab-7757b553439c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VaheAA/blogify-client.git&quot;,
+    &quot;accountId&quot;: &quot;c9c46500-d0b1-4f55-89ab-7757b553439c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -58,10 +62,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
+    "nodejs_interpreter_path": "/home/vaheaa/.nvm/versions/node/v22.12.0/bin/node",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/home/vaheaa/Documents/GitHub/blogify/client/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "settings.nodejs",
     "ts.external.directory.path": "/home/vaheaa/Documents/GitHub/blogify/client/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -69,7 +73,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
       </set>
     </attachedChunks>
   </component>
@@ -85,6 +89,7 @@
       <workItem from="1737195957852" duration="921000" />
       <workItem from="1737360293345" duration="4012000" />
       <workItem from="1737372697713" duration="497000" />
+      <workItem from="1737394191511" duration="2374000" />
     </task>
     <servers />
   </component>

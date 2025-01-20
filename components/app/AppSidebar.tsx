@@ -1,1 +1,1 @@
-export default function AppSidebar() {}
+export function AppSidebar() {}

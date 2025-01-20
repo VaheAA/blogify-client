@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import AppHeader from '@/components/app/AppHeader'
-import AppFooter from '@/components/app/AppFooter'
+import { AppHeader } from '@/components/app/AppHeader'
+import { AppFooter } from '@/components/app/AppFooter'
 
 interface HomeLayoutProps {
   children: ReactNode

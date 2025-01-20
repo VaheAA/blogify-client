@@ -1,26 +1,40 @@
-import React from 'react';
-import Layout from '../layout';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import Link from 'next/link';
+'use client'
+import React from 'react'
+import { Button } from '@/components/ui/button'
+import { AppInput } from '@/components/app/AppInput'
+import Link from 'next/link'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { SignInSchema, type TCreateUser, TLoginUser } from '@/lib/validation'
 
 export default function SignInPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle form submission logic here
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<TLoginUser>({
+    resolver: zodResolver(SignInSchema),
+    mode: 'onChange'
+  })
+
+  const handleSignIn: SubmitHandler<TCreateUser> = async (values) => {
+    console.log(values)
+  }
 
   return (
     <div>
-      <form className="space-y-4">
+      <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
         <div>
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="Enter your email" required />
+          <AppInput id="email" label="Email" register={register} error={errors.email?.message} />
         </div>
+
         <div>
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" placeholder="Enter your password" required />
+          <AppInput
+            id="password"
+            label="Password"
+            register={register}
+            error={errors.password?.message}
+          />
         </div>
         <Button type="submit" className="w-full">
           Sign In
@@ -33,5 +47,5 @@ export default function SignInPage() {
         </Link>
       </p>
     </div>
-  );
+  )
 }
