@@ -4,27 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="" />
+    <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/app/AppButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/app/AppInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/constants/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/hooks/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stores/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "VaheAA"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;VaheAA&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VaheAA/blogify.git",
-    "accountId": "c9c46500-d0b1-4f55-89ab-7757b553439c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VaheAA/blogify.git&quot;,
+    &quot;accountId&quot;: &quot;c9c46500-d0b1-4f55-89ab-7757b553439c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -43,17 +52,17 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/vaheaa/.nvm/versions/node/v22.12.0/bin/node",
+    "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "/home/vaheaa/Documents/GitHub/blogify/client/node_modules/typescript/lib",
+    "ts.external.directory.path": "/home/dev/Documents/blogify/blogify-client/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
       </set>
     </attachedChunks>
   </component>
@@ -67,6 +76,7 @@
       <updated>1737195565528</updated>
       <workItem from="1737195567140" duration="3000" />
       <workItem from="1737195957852" duration="921000" />
+      <workItem from="1737360293345" duration="1965000" />
     </task>
     <servers />
   </component>
