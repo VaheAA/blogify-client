@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/validation/schemas/signUp.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/blog/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/blog/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/profile/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/posts/PostCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/posts/PostList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/types/blog/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/types/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppFooter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/app/AppHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation/schemas/signIn.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +65,17 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "/home/vaheaa/.nvm/versions/node/v22.12.0/bin/node",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/vaheaa/Documents/GitHub/blogify/client/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "/home/dev/Documents/blogify/blogify-client/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "/home/vaheaa/Documents/GitHub/blogify/client/node_modules/typescript/lib",
+    "ts.external.directory.path": "/home/dev/Documents/blogify/blogify-client/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/(root)" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

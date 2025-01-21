@@ -8,10 +8,10 @@ interface HomeLayoutProps {
 
 export default function Layout({ children }: HomeLayoutProps) {
   return (
-    <div>
+    <>
       <AppHeader />
-      {children}
+      <main>{children}</main>
       <AppFooter />
-    </div>
+    </>
   )
 }

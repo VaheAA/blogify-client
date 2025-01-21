@@ -1,6 +1,7 @@
 import React from 'react'
-import Link from 'next/link' // Assuming Next.js routing
-import { Button } from '@/components/ui/button' // Replace with your button component
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { User } from 'lucide-react'
 
 export function AppHeader() {
   return (
@@ -11,18 +12,12 @@ export function AppHeader() {
         </Link>
 
         <nav className="hidden md:flex space-x-6">
-          <Link href="/about" className="text-gray-600 hover:text-blue-500">
-            About
-          </Link>
           <Link href="/blog" className="text-gray-600 hover:text-blue-500">
             Blog
           </Link>
-          <Link href="/contact" className="text-gray-600 hover:text-blue-500">
-            Contact
-          </Link>
         </nav>
 
-        <div className="space-x-4">
+        <div className="flex items-center justify-between gap-4">
           <Link href="/sign-in">
             <Button variant="outline" className="px-4">
               Sign In
@@ -30,6 +25,12 @@ export function AppHeader() {
           </Link>
           <Link href="/sign-up">
             <Button className="px-4">Sign Up</Button>
+          </Link>
+          <Link href="/profile">
+            <Button className="px-4" variant="secondary">
+              <User />
+              Profile
+            </Button>
           </Link>
         </div>
 
