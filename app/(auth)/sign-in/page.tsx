@@ -3,22 +3,65 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { AppInput } from '@/components/app/AppInput'
 import Link from 'next/link'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { SignInSchema, type TCreateUser, TLoginUser } from '@/lib/validation'
+import { SignInSchema, type TLoginUser } from '@/lib/validation'
+import { Loader2 } from 'lucide-react'
+import { BASE_API_URL, ROUTES } from '@/lib/constants'
+import { useMutation } from '@tanstack/react-query'
+import { useToast } from '@/hooks/use-toast'
+import { useRouter } from 'next/navigation'
+import { useAuthStore } from '@/stores/auth'
 
-export default function SignInPage() {
+export default function Page() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm<TLoginUser>({
     resolver: zodResolver(SignInSchema),
-    mode: 'onChange'
+    mode: 'onBlur'
+  })
+  const { setToken } = useAuthStore()
+  const { toast } = useToast()
+  const router = useRouter()
+
+  const mutation = useMutation({
+    mutationFn: async (values: TLoginUser) => {
+      const response = await fetch(`${BASE_API_URL}/users/${ROUTES.SIGN_IN}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      })
+
+      return response.json()
+    },
+    onSuccess: (data: { access_token: string }) => {
+      setToken(data.access_token)
+      toast({
+        className: 'bg-green-400 text-white',
+        title: 'You were successfully logged in',
+        duration: 4000
+      })
+      router.push('/')
+      reset()
+    },
+    onError: (error: Error) => {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: error.message,
+        duration: 4000
+      })
+      reset()
+    }
   })
 
-  const handleSignIn: SubmitHandler<TCreateUser> = async (values) => {
-    console.log(values)
+  const handleSignIn: SubmitHandler<TLoginUser> = (values) => {
+    mutation.mutate(values)
   }
 
   return (
@@ -27,7 +70,6 @@ export default function SignInPage() {
         <div>
           <AppInput id="email" label="Email" register={register} error={errors.email?.message} />
         </div>
-
         <div>
           <AppInput
             id="password"
@@ -36,8 +78,9 @@ export default function SignInPage() {
             error={errors.password?.message}
           />
         </div>
-        <Button type="submit" className="w-full">
-          Sign In
+        <Button type="submit" className="w-full" disabled={mutation.isPending}>
+          {mutation.isPending && <Loader2 className="animate-spin" />}
+          Sign in
         </Button>
       </form>
       <p className="text-center text-sm text-gray-600 mt-4">

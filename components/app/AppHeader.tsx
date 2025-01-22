@@ -1,9 +1,13 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { User } from 'lucide-react'
+import { LogOut, User } from 'lucide-react'
+import { useAuthStore } from '@/stores/auth'
 
 export function AppHeader() {
+  const { clearToken, isAuthenticated } = useAuthStore()
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -12,26 +16,42 @@ export function AppHeader() {
         </Link>
 
         <nav className="hidden md:flex space-x-6">
-          <Link href="/blog" className="text-gray-600 hover:text-blue-500">
+          <Link
+            href={{
+              pathname: '/blog'
+            }}
+            className="text-gray-600 hover:text-blue-500">
             Blog
           </Link>
         </nav>
 
         <div className="flex items-center justify-between gap-4">
-          <Link href="/sign-in">
-            <Button variant="outline" className="px-4">
-              Sign In
-            </Button>
-          </Link>
-          <Link href="/sign-up">
-            <Button className="px-4">Sign Up</Button>
-          </Link>
-          <Link href="/profile">
-            <Button className="px-4" variant="secondary">
-              <User />
-              Profile
-            </Button>
-          </Link>
+          {!isAuthenticated && (
+            <>
+              <Link href={{ pathname: '/sign-in' }}>
+                <Button variant="outline" className="px-4">
+                  Sign In
+                </Button>
+              </Link>
+              <Link href={{ pathname: '/sign-up' }}>
+                <Button className="px-4">Sign Up</Button>
+              </Link>
+            </>
+          )}
+          {isAuthenticated && (
+            <>
+              <Link href={{ pathname: '/profile' }}>
+                <Button variant="secondary">
+                  <User />
+                  Profile
+                </Button>
+              </Link>
+              <Button variant="outline" onClick={clearToken}>
+                <LogOut />
+                Sign out
+              </Button>
+            </>
+          )}
         </div>
 
         <button

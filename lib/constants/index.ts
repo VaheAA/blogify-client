@@ -17,4 +17,12 @@ const MOCK_POSTS: IBlogPost[] = Array.from({ length: 50 }, (_, index) => ({
   updatedAt: index % 5 === 0 ? new Date(`2025-02-${(index % 28) + 1}`) : undefined
 }))
 
-export { POSTS_PER_PAGE, MOCK_POSTS }
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL
+
+enum ROUTES {
+  SIGN_UP = 'sign-up',
+  SIGN_IN = 'sign-in',
+  SIGN_OUT = 'sign-out'
+}
+
+export { POSTS_PER_PAGE, MOCK_POSTS, BASE_API_URL, ROUTES }
