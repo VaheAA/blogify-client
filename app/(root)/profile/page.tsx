@@ -100,7 +100,7 @@ function ProfilePage() {
             </TableHeader>
             <TableBody>
               {postsQuery.data?.posts.map((post) => (
-                <TableRow>
+                <TableRow key={post.id}>
                   <TableCell className="font-medium">
                     <Link
                       href={{
