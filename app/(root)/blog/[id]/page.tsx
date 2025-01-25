@@ -4,17 +4,6 @@ import Link from 'next/link'
 
 export const revalidate = 60
 
-export const dynamicParams = true // or false, to 404 on unknown paths
-export async function generateStaticParams() {
-  const { posts }: { posts: IBlogPost[]; total: number } = await fetch(
-    `${BASE_API_URL}/posts`
-  ).then((res) => res.json())
-
-  return posts.map((post) => ({
-    id: String(post.id)
-  }))
-}
-
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const id = (await params).id
   const post: IBlogPost = await fetch(`${BASE_API_URL}/posts/${id}`).then((res) => res.json())

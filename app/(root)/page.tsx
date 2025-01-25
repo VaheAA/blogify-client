@@ -5,9 +5,10 @@ import Link from 'next/link'
 import React from 'react'
 import { IBlogPost } from '@/lib/types'
 
-export const revalidate = 30
+export const revalidate = 360
 
 export default async function Page() {
+  console.log(BASE_API_URL, 'aaaaaaaaaaaaa')
   const { posts }: { posts: IBlogPost[] } = await fetch(
     `${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`
   ).then((res) => res.json())

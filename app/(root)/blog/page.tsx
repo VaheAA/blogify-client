@@ -5,11 +5,7 @@ import { IBlogPost } from '@/lib/types'
 import { AppPagination } from '@/components/app/AppPagination'
 import { AppSearch } from '@/components/app/AppSearch'
 
-export default async function Page({
-  searchParams
-}: {
-  searchParams: { [key: string]: string | string[] | undefined }
-}) {
+export default async function Page({ searchParams }: { searchParams: Promise<any> }) {
   const pageSearchParams = await searchParams
 
   const query = pageSearchParams['query'] ?? ''
