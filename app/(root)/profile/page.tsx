@@ -6,7 +6,6 @@ import { BASE_API_URL } from '@/lib/constants'
 import { useAuthStore } from '@/stores/auth'
 import { useQuery } from '@tanstack/react-query'
 import withAuth from '@/components/HOC/withAuth'
-import { PostList } from '@/components/posts/PostList'
 import { useRouter } from 'next/navigation'
 import {
   Table,
@@ -126,11 +125,6 @@ function ProfilePage() {
               ))}
             </TableBody>
           </Table>
-          {/*{postsQuery.data?.posts?.length ? (*/}
-          {/*  <PostList posts={postsQuery.data.posts} />*/}
-          {/*) : (*/}
-          {/*  <p className="text-gray-500">You haven’t written any posts yet. Start creating!</p>*/}
-          {/*)}*/}
         </div>
       </section>
     </div>
