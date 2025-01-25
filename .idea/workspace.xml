@@ -5,19 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/stores/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/HOC/withAuth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/app/AppPagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/app/AppSearch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/posts/CreatePostForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/multi-select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/hooks/useApi.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/blog/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/blog/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/profile/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/app/AppHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/app/AppInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/posts/PostCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/posts/PostCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/validation/schemas/signIn.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation/schemas/signIn.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/validation/schemas/signUp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation/schemas/signUp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/types/blog/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types/blog/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stores/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/stores/auth/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +68,11 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/home/vaheaa/.nvm/versions/node/v22.12.0/bin/node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/dev/Documents/blogify/blogify-client/node_modules/prettier&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/vaheaa/Documents/GitHub/blogify/client/node_modules/prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/dev/Documents/blogify/blogify-client/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/vaheaa/Documents/GitHub/blogify/client/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -76,7 +85,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +105,8 @@
       <workItem from="1737470386063" duration="10000" />
       <workItem from="1737526876564" duration="4180000" />
       <workItem from="1737533412662" duration="6708000" />
+      <workItem from="1737805179170" duration="8228000" />
+      <workItem from="1737815254307" duration="859000" />
     </task>
     <servers />
   </component>

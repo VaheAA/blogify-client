@@ -7,8 +7,9 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <div className="border rounded-md p-4 shadow-md hover:shadow-lg transition-shadow">
-      <h3 className="text-lg font-bold mb-2">
+    <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-lg transition-shadow duration-300">
+      {/* Post Title */}
+      <h3 className="text-2xl font-bold text-gray-800 mb-3 hover:text-blue-600">
         <Link
           href={{
             pathname: `/blog/${post.id}`
@@ -17,25 +18,35 @@ export function PostCard({ post }: PostCardProps) {
         </Link>
       </h3>
 
-      <p className="text-gray-600 mb-2">{post.content.substring(0, 100)}...</p>
+      {/* Post Excerpt */}
+      <p className="text-gray-600 mb-4 line-clamp-3">{post.content.substring(0, 100)}...</p>
 
-      {post.tags.length && (
-        <div className="flex flex-wrap gap-2 mb-2">
+      {/* Post Tags */}
+      {post.tags.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.map((tag, index) => (
-            <span key={index} className="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">
-              {tag}
-            </span>
+            <Link
+              href={{
+                pathname: '/blog',
+                search: `tags=${tag.name}`
+              }}
+              key={index}
+              className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-3 py-1 text-sm rounded-full shadow">
+              {tag.name}
+            </Link>
           ))}
         </div>
       )}
 
+      {/* Author Info */}
       {post.author && (
-        <p className="text-sm text-gray-500">
-          By <span className="font-medium">{post.author.username}</span>
+        <p className="text-sm text-gray-500 mb-2">
+          By <span className="font-medium text-gray-700">{post.author.username}</span>
         </p>
       )}
 
-      <p className="text-xs text-gray-400">
+      {/* Post Date */}
+      <p className="text-xs text-gray-400 mb-4">
         {post.updatedAt
           ? `Updated on ${new Date(post.updatedAt).toLocaleDateString()}`
           : `Published on ${new Date(post.createdAt!).toLocaleDateString()}`}

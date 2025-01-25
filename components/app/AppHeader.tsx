@@ -4,9 +4,32 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { LogOut, User } from 'lucide-react'
 import { useAuthStore } from '@/stores/auth'
+import { useMutation } from '@tanstack/react-query'
+import { BASE_API_URL, ROUTES } from '@/lib/constants'
+import { useRouter } from 'next/navigation'
 
 export function AppHeader() {
-  const { clearToken, isAuthenticated } = useAuthStore()
+  const { clearToken, isAuthenticated, getToken } = useAuthStore()
+  const token = getToken()
+  const router = useRouter()
+
+  const mutation = useMutation({
+    mutationFn: async () => {
+      await fetch(`${BASE_API_URL}/users/${ROUTES.SIGN_OUT}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+    },
+    onSuccess: () => {
+      clearToken()
+      router.push('/')
+    }
+  })
+
+  const handleSignOut = async () => {
+    mutation.mutate()
+  }
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -46,7 +69,7 @@ export function AppHeader() {
                   Profile
                 </Button>
               </Link>
-              <Button variant="outline" onClick={clearToken}>
+              <Button variant="outline" onClick={handleSignOut}>
                 <LogOut />
                 Sign out
               </Button>

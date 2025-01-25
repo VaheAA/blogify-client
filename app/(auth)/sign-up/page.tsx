@@ -71,7 +71,13 @@ export default function Page() {
     <div>
       <form onSubmit={handleSubmit(handleSignUp)} className="space-y-4">
         <div>
-          <AppInput id="email" label="Email" register={register} error={errors.email?.message} />
+          <AppInput
+            id="email"
+            label="Email"
+            type="email"
+            register={register}
+            error={errors.email?.message}
+          />
         </div>
 
         <div>
@@ -87,6 +93,7 @@ export default function Page() {
           <AppInput
             id="password"
             label="Password"
+            type="password"
             register={register}
             error={errors.password?.message}
           />

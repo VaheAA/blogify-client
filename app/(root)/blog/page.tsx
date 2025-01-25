@@ -1,87 +1,62 @@
-'use client'
-
 import { PostList } from '@/components/posts/PostList'
-import { MOCK_POSTS, POSTS_PER_PAGE } from '@/lib/constants'
-import React, { useState, useMemo } from 'react'
+import { BASE_API_URL, POSTS_PER_PAGE } from '@/lib/constants'
+import React from 'react'
+import { IBlogPost } from '@/lib/types'
+import { AppPagination } from '@/components/app/AppPagination'
+import { AppSearch } from '@/components/app/AppSearch'
 
-export default function AllPostsPage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [currentPage, setCurrentPage] = useState(1)
+export default async function Page({
+  searchParams
+}: {
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
+  const pageSearchParams = await searchParams
 
-  // Filter posts by title or tags
-  const filteredPosts = useMemo(() => {
-    return MOCK_POSTS.filter((post) => {
-      const matchesTitle = post.title.toLowerCase().includes(searchQuery.toLowerCase())
-      const matchesTags = post.tags.some((tag) =>
-        tag.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-      return matchesTitle || matchesTags
-    })
-  }, [searchQuery])
+  const query = pageSearchParams['query'] ?? ''
+  const tags = pageSearchParams['tags'] ?? []
+  const page = Array.isArray(pageSearchParams['page'])
+    ? pageSearchParams['page'][0]
+    : (pageSearchParams['page'] ?? '1')
+  const limit = Array.isArray(pageSearchParams['limit'])
+    ? pageSearchParams['limit'][0]
+    : (pageSearchParams['limit'] ?? POSTS_PER_PAGE.toString())
 
-  // Paginate filtered posts
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
-  const paginatedPosts = useMemo(
-    () => filteredPosts.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE),
-    [filteredPosts, currentPage, POSTS_PER_PAGE]
-  )
+  const queryParams = new URLSearchParams()
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value)
-    setCurrentPage(1) // Reset to page 1 on search
+  if (query) {
+    queryParams.append('query', query as string)
   }
 
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage)
+  if (tags.length > 0) {
+    queryParams.append('tags', Array.isArray(tags) ? tags.join(',') : (tags as string))
   }
+
+  queryParams.append('page', page)
+  queryParams.append('limit', limit)
+
+  const start = (Number(page) - 1) * Number(limit)
+  const end = start + Number(limit)
+
+  const { posts, total }: { posts: IBlogPost[]; total: number } = await fetch(
+    `${BASE_API_URL}/posts?${queryParams.toString()}`
+  ).then((res) => res.json())
+
+  const totalPages = Math.ceil(total / POSTS_PER_PAGE)
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold mb-6">All Posts</h1>
+    <div className="container mx-auto px-6 py-8">
+      <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-800">All Posts</h1>
+      <AppSearch />
 
-      {/* Search Bar */}
-      <div className="mb-4">
-        <input
-          type="text"
-          placeholder="Search by title or tags..."
-          value={searchQuery}
-          onChange={handleSearch}
-          className="w-full p-2 border rounded-md"
-        />
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        {posts.length > 0 ? (
+          <PostList posts={posts} />
+        ) : (
+          <p className="text-gray-500 text-center">No posts found. Try refining your search.</p>
+        )}
       </div>
 
-      {/* Post List */}
-      <PostList posts={paginatedPosts} />
-
-      {/* Pagination Controls */}
-      <div className="flex justify-center items-center mt-6 space-x-2">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className={`px-3 py-1 border rounded-md ${
-            currentPage === 1 ? 'bg-gray-200 text-gray-500' : 'bg-white'
-          }`}>
-          Previous
-        </button>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <button
-            key={page}
-            onClick={() => handlePageChange(page)}
-            className={`px-3 py-1 border rounded-md ${
-              page === currentPage ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'
-            }`}>
-            {page}
-          </button>
-        ))}
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className={`px-3 py-1 border rounded-md ${
-            currentPage === totalPages ? 'bg-gray-200 text-gray-500' : 'bg-white'
-          }`}>
-          Next
-        </button>
-      </div>
+      <AppPagination hasNextPage={end < total} hasPrevPage={start > 0} totalPages={totalPages} />
     </div>
   )
 }

@@ -1,11 +1,16 @@
 import { IUser } from '@/lib/types'
 
+interface ITag {
+  id: number
+  name: string
+}
+
 interface IBlogPost {
   id: number
   title: string
   content: string
   author?: IUser
-  tags: string[]
+  tags: ITag[]
   updatedAt?: Date
   createdAt?: Date
 }

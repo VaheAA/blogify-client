@@ -1,26 +1,35 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { jwtDecode } from 'jwt-decode' // Note: Remove curly braces when importing `jwt-decode`
+import { jwtDecode } from 'jwt-decode'
 
 interface AuthState {
   token: string | null
   isAuthenticated: boolean
   setToken: (token: string) => void
   clearToken: () => void
+  getToken: () => string | null
 }
 
 export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
       token: null,
-      setToken: (token: string) => set({ token }),
+      setToken: (token: string) => {
+        try {
+          const decoded: { exp: number } = jwtDecode(token)
+          const isValid = decoded.exp * 1000 > Date.now()
+          set({ token, isAuthenticated: isValid })
+        } catch {
+          set({ token: null, isAuthenticated: false })
+        }
+      },
       clearToken: () => set({ token: null, isAuthenticated: false }),
-      isAuthenticated: false // Initialize as false and compute later
+      isAuthenticated: false,
+      getToken: () => get().token
     }),
     {
       name: 'auth-storage',
       onRehydrateStorage: () => (state) => {
-        // This will be called when the state is rehydrated from storage
         if (state?.token) {
           try {
             const decoded: { exp: number } = jwtDecode(state.token)

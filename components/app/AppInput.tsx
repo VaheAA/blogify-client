@@ -9,7 +9,7 @@ interface TextInputProps {
   type?: string
   placeholder?: string
   error?: string | FieldError
-  register: ReturnType<UseFormRegister<Record<string, never>>>
+  register?: ReturnType<UseFormRegister<Record<string, never>>>
 }
 
 export function AppInput({
@@ -23,7 +23,13 @@ export function AppInput({
   return (
     <div className="space-y-1">
       <Label htmlFor={id}>{label}</Label>
-      <Input id={id} type={type} placeholder={placeholder} {...register(id)} />
+      <Input
+        className="transition duration-300"
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        {...register(id)}
+      />
       {error && (
         <p className="text-sm text-red-500 mt-1">
           {typeof error === 'string' ? error : error.message}

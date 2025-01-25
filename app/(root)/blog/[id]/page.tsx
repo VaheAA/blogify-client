@@ -1,49 +1,62 @@
-'use client'
-
-import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
 import type { IBlogPost } from '@/lib/types'
-import { MOCK_POSTS } from '@/lib/constants'
+import { BASE_API_URL } from '@/lib/constants'
+import Link from 'next/link'
 
-export default function SinglePostPage() {
-  const params = useParams()
-  const [post, setPost] = useState<IBlogPost | undefined>(undefined)
+export const revalidate = 60
 
-  useEffect(() => {
-    const post = MOCK_POSTS.find((post) => parseInt(params.id as string) === post.id)
+export const dynamicParams = true // or false, to 404 on unknown paths
+export async function generateStaticParams() {
+  const { posts }: { posts: IBlogPost[]; total: number } = await fetch(
+    `${BASE_API_URL}/posts`
+  ).then((res) => res.json())
 
-    setPost(post)
-  }, [params.id])
+  return posts.map((post) => ({
+    id: String(post.id)
+  }))
+}
+
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const id = (await params).id
+  const post: IBlogPost = await fetch(`${BASE_API_URL}/posts/${id}`).then((res) => res.json())
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-4 py-10">
       {post && (
-        <>
-          <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-          <p className="text-gray-600 text-sm mb-6">
-            {post.author && <span>By {post.author.username}</span>} |{' '}
+        <div className="bg-white shadow-lg rounded-lg p-6">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{post.title}</h1>
+          <p className="text-gray-500 text-sm mb-6">
+            {post.author && (
+              <span>
+                By <span className="font-medium">{post.author.username}</span>
+              </span>
+            )}{' '}
+            |{' '}
             {post.updatedAt
               ? `Updated on ${new Date(post.updatedAt).toLocaleDateString()}`
               : `Published on ${new Date(post.createdAt!).toLocaleDateString()}`}
           </p>
-          <div className="prose max-w-none">
+          <div className="prose prose-lg max-w-none text-gray-700 mb-6">
             <p>{post.content}</p>
           </div>
           {post.tags.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold mb-2">Tags:</h3>
-              <div className="flex flex-wrap gap-2">
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-4">Tags</h3>
+              <div className="flex flex-wrap gap-3">
                 {post.tags.map((tag, index) => (
-                  <span
+                  <Link
+                    href={{
+                      pathname: '/blog',
+                      search: `tags=${tag.name}`
+                    }}
                     key={index}
-                    className="bg-blue-100 text-blue-700 px-2 py-1 text-xs rounded-md">
-                    {tag}
-                  </span>
+                    className="bg-gradient-to-r from-blue-500 to-green-400 text-white px-3 py-1 text-sm rounded-full shadow">
+                    {tag.name}
+                  </Link>
                 ))}
               </div>
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   )
