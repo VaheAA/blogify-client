@@ -23,6 +23,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useEditPostStore } from '@/stores'
 import { AppTextarea } from '@/components/app/AppTextarea'
+import { createPost } from '@/app/actions' 
 
 export function CreateEditPostForm() {
   const { post, isDialogOpen, closeDialog, openDialog } = useEditPostStore()
@@ -97,6 +98,7 @@ export function CreateEditPostForm() {
 
   const onSubmit: SubmitHandler<TCreateEditPost> = (values) => {
     mutation.mutate(values)
+    createPost()
   }
 
   return (
