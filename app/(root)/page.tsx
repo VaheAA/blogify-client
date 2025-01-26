@@ -13,12 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const { posts }: { posts: IBlogPost[] } = await fetch(
-    `${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`,
-    {
-      referrerPolicy: 'unsafe-url'
-    }
-  ).then((res) => res.json())
+  const { posts }: { posts: IBlogPost[] } = await fetch(`${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`).then((res) => res.json())
 
   return (
     <div>
@@ -45,7 +40,6 @@ export default async function Page() {
           </Link>
         </div>
       </section>
-      g{' '}
     </div>
   )
 }
