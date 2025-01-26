@@ -5,32 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(root)/profile/table/UserPostsTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(root)/profile/table/column.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/app/AppTag.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/app/AppTagInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/app/AppTextarea.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/validation/schemas/createEditPost.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stores/blog/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trust-policy.json  " afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/blog/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/blog/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/blog/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/profile/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/HOC/withAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/HOC/withAuth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/app/AppSearch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/app/AppSearch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/posts/CreatePostForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/posts/CreatePostForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/posts/PostCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/posts/PostCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/types/blog/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types/blog/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stores/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/stores/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stores/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/stores/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +89,7 @@
       <workItem from="1737533412662" duration="6708000" />
       <workItem from="1737805179170" duration="8228000" />
       <workItem from="1737815254307" duration="6570000" />
-      <workItem from="1737879838750" duration="13989000" />
+      <workItem from="1737879838750" duration="15383000" />
     </task>
     <servers />
   </component>

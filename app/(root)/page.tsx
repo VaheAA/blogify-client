@@ -22,7 +22,7 @@ export default async function Page() {
             height="100"
             src="/images/hero.jpg"
             alt="Hero Background"
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
         <div className="relative z-10 container mx-auto px-6 py-24 text-center">
@@ -32,11 +32,6 @@ export default async function Page() {
           <p className="text-xl font-light max-w-2xl mx-auto mb-6">
             Discover the latest insights, tips, and trends in the world of web development.
           </p>
-          <Link
-            href="/blog"
-            className="inline-block bg-yellow-400 text-blue-800 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-300 transition duration-300">
-            Explore More
-          </Link>
         </div>
       </section>
       {/* Latest Posts Section */}
