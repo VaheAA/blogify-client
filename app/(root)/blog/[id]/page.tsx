@@ -7,7 +7,9 @@ export const revalidate = 60
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const id = (await params).id
-  const post: IBlogPost = await fetch(`${BASE_API_URL}/posts/${id}`).then((res) => res.json())
+  const post: IBlogPost = await fetch(`${BASE_API_URL}/posts/${id}`, {
+    referrerPolicy: 'unsafe-url'
+  }).then((res) => res.json())
 
   return (
     <div className="container mx-auto px-4 py-10">

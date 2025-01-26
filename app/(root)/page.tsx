@@ -9,7 +9,10 @@ export const revalidate = 360
 
 export default async function Page() {
   const { posts }: { posts: IBlogPost[] } = await fetch(
-    `${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`
+    `${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`,
+    {
+      referrerPolicy: 'unsafe-url'
+    }
   ).then((res) => res.json())
 
   return (

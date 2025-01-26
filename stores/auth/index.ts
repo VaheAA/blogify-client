@@ -5,7 +5,7 @@ import { jwtDecode } from 'jwt-decode'
 interface AuthState {
   token: string | null
   isAuthenticated: boolean
-  isHydrated: boolean // New state to track rehydration
+  isHydrated: boolean
   setToken: (token: string) => void
   clearToken: () => void
   getToken: () => string | null

@@ -7,7 +7,9 @@ import { AppSearch } from '@/components/app/AppSearch'
 import { ITag } from '@/lib/types/blog'
 
 export default async function Page({ searchParams }: { searchParams: Promise<any> }) {
-  const tagsData: ITag[] = await fetch(`${BASE_API_URL}/posts/tags`).then((res) => res.json())
+  const tagsData: ITag[] = await fetch(`${BASE_API_URL}/posts/tags`, {
+    referrerPolicy: 'unsafe-url'
+  }).then((res) => res.json())
   const parsedTags = tagsData.map((tag) => ({
     label: tag.name,
     value: tag.name
@@ -41,7 +43,10 @@ export default async function Page({ searchParams }: { searchParams: Promise<any
   const end = start + Number(limit)
 
   const { posts, total }: { posts: IBlogPost[]; total: number } = await fetch(
-    `${BASE_API_URL}/posts?${queryParams.toString()}`
+    `${BASE_API_URL}/posts?${queryParams.toString()}`,
+    {
+      referrerPolicy: 'unsafe-url'
+    }
   ).then((res) => res.json())
 
   const totalPages = Math.ceil(total / POSTS_PER_PAGE)
