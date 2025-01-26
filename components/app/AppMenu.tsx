@@ -44,12 +44,16 @@ export function AppMenu() {
           {!isAuthenticated && (
             <>
               <Link href={{ pathname: '/sign-in' }}>
-                <Button variant="outline" className="px-4">
+                <Button
+                  variant="outline"
+                  className="bg-whitre text-blue-600 font-medium px-6 py-3 rounded-lg shadow-md hover:bg-gray-200 transition duration-300">
                   Sign In
                 </Button>
               </Link>
               <Link href={{ pathname: '/sign-up' }}>
-                <Button className="px-4">Sign Up</Button>
+                <Button className="bg-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-500 transition duration-300">
+                  Sign Up
+                </Button>
               </Link>
             </>
           )}
@@ -93,7 +97,7 @@ export function AppMenu() {
                 href={{ pathname: '/sign-in' }}
                 className="w-full"
                 onClick={() => setIsDrawerOpen(false)}>
-                <Button variant="outline" className="px-4 w-full">
+                <Button variant="outline" className="px-6 py-3 w-full">
                   Sign In
                 </Button>
               </Link>
@@ -101,7 +105,7 @@ export function AppMenu() {
                 href={{ pathname: '/sign-up' }}
                 className="w-full"
                 onClick={() => setIsDrawerOpen(false)}>
-                <Button className="px-4 w-full">Sign Up</Button>
+                <Button className="px-6 py-3 w-full">Sign Up</Button>
               </Link>
             </div>
           )}
@@ -111,12 +115,12 @@ export function AppMenu() {
                 href={{ pathname: '/profile' }}
                 className="w-full"
                 onClick={() => setIsDrawerOpen(false)}>
-                <Button variant="secondary" className="w-full">
+                <Button variant="secondary" className="w-full px-6 py-3">
                   <User />
                   Profile
                 </Button>
               </Link>
-              <Button variant="outline" onClick={handleSignOut} className="w-full">
+              <Button variant="outline" onClick={handleSignOut} className="w-full px-6 py-3">
                 <LogOut />
                 Sign out
               </Button>
