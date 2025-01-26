@@ -1,8 +1,7 @@
 import type { IBlogPost } from '@/lib/types'
 import { BASE_API_URL } from '@/lib/constants'
-import Link from 'next/link'
 import { AppTag } from '@/components/app/AppTag'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 
 export const revalidate = 600
 
