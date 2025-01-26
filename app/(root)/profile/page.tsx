@@ -61,7 +61,6 @@ function ProfilePage() {
           <p className="text-lg">
             <strong>Email:</strong> {data?.email || 'N/A'}
           </p>
-          <Button className="mt-6 bg-white text-indigo-600 hover:bg-gray-100">Edit Profile</Button>
         </div>
       </section>
 

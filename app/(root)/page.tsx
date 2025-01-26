@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { PostList } from '@/components/posts/PostList'
 import { BASE_API_URL, POSTS_PER_PAGE } from '@/lib/constants'
 import Link from 'next/link'
@@ -19,15 +18,6 @@ export default async function Page() {
     <div>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-        <div className="absolute inset-0">
-          <Image
-            width="100"
-            height="100"
-            src="/images/hero.jpg"
-            alt="Hero Background"
-            className="w-full h-full object-cover opacity-30"
-          />
-        </div>
         <div className="relative z-10 container mx-auto px-6 py-24 text-center">
           <h1 className="text-5xl font-extrabold mb-4">
             Welcome to <span className="text-yellow-400">Blogify</span>

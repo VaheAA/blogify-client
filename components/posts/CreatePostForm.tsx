@@ -58,7 +58,7 @@ export function CreateEditPostForm() {
 
   const mutation = useMutation({
     mutationFn: async (values: TCreateEditPost) => {
-      const response = await fetch(`${BASE_API_URL}/posts`, {
+      const response = await fetch(`${BASE_API_URL}/posts/${post?.id ?? ''}`, {
         method: post ? 'PUT' : 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,6 +66,11 @@ export function CreateEditPostForm() {
         },
         body: JSON.stringify(values)
       })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message || 'Something went wrong')
+      }
 
       return response.json()
     },

@@ -37,6 +37,15 @@ export function AppSearch({ options }: AppSearchProps) {
     router.push(`${pathName}?${params.toString()}`)
   }
 
+  function getSelectedTags() {
+    const params = new URLSearchParams(searchParams)
+    const tags = params.get('tags')
+
+    if (!tags) return []
+
+    return tags.split(',')
+  }
+
   return (
     <div className="mb-6 flex items-center gap-4">
       <Input
@@ -50,7 +59,7 @@ export function AppSearch({ options }: AppSearchProps) {
       <MultiSelect
         options={options}
         onValueChange={handleTagSearch}
-        defaultValue={[]}
+        defaultValue={getSelectedTags()}
         placeholder="Select tags"
       />
     </div>
