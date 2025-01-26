@@ -5,7 +5,7 @@ import React from 'react'
 import { IBlogPost } from '@/lib/types'
 import { Metadata } from 'next'
 
-export const revalidate = 600
+export const revalidate = 360
 
 export const metadata: Metadata = {
   title: 'Blogify',
