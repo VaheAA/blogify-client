@@ -1,9 +1,9 @@
-import React from 'react'
-import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import { FieldError, UseFormRegister } from 'react-hook-form'
+import React from 'react'
 
-interface AppInputProps {
+interface AppTextareaProps {
   id: string
   label: string
   type?: string
@@ -12,18 +12,18 @@ interface AppInputProps {
   register?: ReturnType<UseFormRegister<Record<string, never>>>
 }
 
-export function AppInput({
+export function AppTextarea({
   id,
   label,
   type = 'text',
   placeholder = '',
   error,
   register
-}: AppInputProps) {
+}: AppTextareaProps) {
   return (
     <div className="space-y-1">
       <Label htmlFor={id}>{label}</Label>
-      <Input
+      <Textarea
         className="transition duration-300"
         id={id}
         type={type}

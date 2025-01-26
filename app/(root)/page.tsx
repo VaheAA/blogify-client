@@ -8,7 +8,6 @@ import { IBlogPost } from '@/lib/types'
 export const revalidate = 360
 
 export default async function Page() {
-  console.log(BASE_API_URL, 'aaaaaaaaaaaaa')
   const { posts }: { posts: IBlogPost[] } = await fetch(
     `${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`
   ).then((res) => res.json())
@@ -40,7 +39,6 @@ export default async function Page() {
           </Link>
         </div>
       </section>
-
       {/* Latest Posts Section */}
       <section className="container mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Latest Posts</h2>
@@ -53,6 +51,7 @@ export default async function Page() {
           </Link>
         </div>
       </section>
+      g{' '}
     </div>
   )
 }

@@ -4,15 +4,11 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { Input } from '@/components/ui/input'
 import { MultiSelect } from '@/components/ui/multi-select'
 
-const frameworksList = [
-  { value: 'react', label: 'React' },
-  { value: 'angular', label: 'Angular' },
-  { value: 'vue', label: 'Vue' },
-  { value: 'svelte', label: 'Svelte' },
-  { value: 'ember', label: 'Ember' }
-]
+interface AppSearchProps {
+  options: { value: string; label: string }[]
+}
 
-export function AppSearch() {
+export function AppSearch({ options }: AppSearchProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathName = usePathname()
@@ -52,7 +48,7 @@ export function AppSearch() {
       />
 
       <MultiSelect
-        options={frameworksList}
+        options={options}
         onValueChange={handleTagSearch}
         defaultValue={[]}
         placeholder="Select tags"

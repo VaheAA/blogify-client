@@ -4,8 +4,15 @@ import React from 'react'
 import { IBlogPost } from '@/lib/types'
 import { AppPagination } from '@/components/app/AppPagination'
 import { AppSearch } from '@/components/app/AppSearch'
+import { ITag } from '@/lib/types/blog'
 
 export default async function Page({ searchParams }: { searchParams: Promise<any> }) {
+  const tagsData: ITag[] = await fetch(`${BASE_API_URL}/posts/tags`).then((res) => res.json())
+  const parsedTags = tagsData.map((tag) => ({
+    label: tag.name,
+    value: tag.name
+  }))
+
   const pageSearchParams = await searchParams
 
   const query = pageSearchParams['query'] ?? ''
@@ -42,7 +49,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<any
   return (
     <div className="container mx-auto px-6 py-8">
       <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-800">All Posts</h1>
-      <AppSearch />
+      <AppSearch options={parsedTags} />
 
       <div className="bg-white shadow-lg rounded-lg p-6">
         {posts.length > 0 ? (

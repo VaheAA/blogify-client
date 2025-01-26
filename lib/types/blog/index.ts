@@ -1,6 +1,6 @@
 import { IUser } from '@/lib/types'
 
-interface ITag {
+export interface ITag {
   id: number
   name: string
 }

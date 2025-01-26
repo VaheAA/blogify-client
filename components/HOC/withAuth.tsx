@@ -5,18 +5,21 @@ import { useAuthStore } from '@/stores/auth'
 export default function withAuth(Component: React.ComponentType) {
   return function ProtectedRoute(props: any) {
     const router = useRouter()
-    const { isAuthenticated } = useAuthStore()
-
-    console.log(isAuthenticated)
+    const { isAuthenticated, isHydrated } = useAuthStore()
 
     useEffect(() => {
-      if (!isAuthenticated) {
+      if (isHydrated && !isAuthenticated) {
         router.push('/sign-in')
       }
-    }, [isAuthenticated, router])
+    }, [isAuthenticated, isHydrated, router])
+
+    if (!isHydrated) {
+      // Show a loading placeholder until rehydration is complete
+      return <div>Loading...</div>
+    }
 
     if (!isAuthenticated) {
-      return null
+      return null // Prevent rendering the protected component
     }
 
     return <Component {...props} />

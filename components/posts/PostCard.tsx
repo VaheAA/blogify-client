@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { IBlogPost } from '@/lib/types'
+import { AppTag } from '@/components/app/AppTag'
 
 interface PostCardProps {
   post: IBlogPost
@@ -25,15 +26,7 @@ export function PostCard({ post }: PostCardProps) {
       {post.tags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.map((tag, index) => (
-            <Link
-              href={{
-                pathname: '/blog',
-                search: `tags=${tag.name}`
-              }}
-              key={index}
-              className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-3 py-1 text-sm rounded-full shadow">
-              {tag.name}
-            </Link>
+            <AppTag tag={tag} key={index} />
           ))}
         </div>
       )}

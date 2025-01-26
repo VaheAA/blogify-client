@@ -1,6 +1,7 @@
 import type { IBlogPost } from '@/lib/types'
 import { BASE_API_URL } from '@/lib/constants'
 import Link from 'next/link'
+import { AppTag } from '@/components/app/AppTag'
 
 export const revalidate = 60
 
@@ -32,15 +33,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
               <h3 className="text-xl font-semibold mb-4">Tags</h3>
               <div className="flex flex-wrap gap-3">
                 {post.tags.map((tag, index) => (
-                  <Link
-                    href={{
-                      pathname: '/blog',
-                      search: `tags=${tag.name}`
-                    }}
-                    key={index}
-                    className="bg-gradient-to-r from-blue-500 to-green-400 text-white px-3 py-1 text-sm rounded-full shadow">
-                    {tag.name}
-                  </Link>
+                  <AppTag tag={tag} key={index} variant="detail" />
                 ))}
               </div>
             </div>

@@ -85,7 +85,10 @@ export default function Page() {
             error={errors.password?.message}
           />
         </div>
-        <Button type="submit" className="w-full" disabled={mutation.isPending}>
+        <Button
+          type="submit"
+          className="w-full bg-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-500 transition duration-300"
+          disabled={mutation.isPending}>
           {mutation.isPending && <Loader2 className="animate-spin" />}
           Sign in
         </Button>

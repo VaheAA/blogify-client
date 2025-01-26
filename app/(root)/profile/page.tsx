@@ -6,23 +6,13 @@ import { BASE_API_URL } from '@/lib/constants'
 import { useAuthStore } from '@/stores/auth'
 import { useQuery } from '@tanstack/react-query'
 import withAuth from '@/components/HOC/withAuth'
-import { useRouter } from 'next/navigation'
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow
-} from '@/components/ui/table'
-import { PencilIcon, TrashIcon } from 'lucide-react'
-import Link from 'next/link'
+import { CreateEditPostForm } from '@/components/posts/CreatePostForm'
+import { DataTable } from '@/app/(root)/profile/table/UserPostsTable'
+import { columns } from '@/app/(root)/profile/table/column'
 
 function ProfilePage() {
   const { getToken } = useAuthStore()
   const token = getToken()
-  const router = useRouter()
 
   async function fetchUserProfile(): Promise<IUser | null> {
     const res = await fetch(`${BASE_API_URL}/users/profile`, {
@@ -61,13 +51,8 @@ function ProfilePage() {
     queryFn: fetchUserPosts
   })
 
-  const handleCreatePost = () => {
-    router.push('/create-post') // Adjust this route based on your app's routing structure
-  }
-
   return (
     <div className="container mx-auto px-6 py-8">
-      {/* Profile Section */}
       <section className="mb-12">
         <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg p-6 shadow-md">
           <h1 className="text-3xl font-bold mb-4">Welcome, {data?.username || 'User'}!</h1>
@@ -78,53 +63,13 @@ function ProfilePage() {
         </div>
       </section>
 
-      {/* Posts Section */}
       <section>
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-800">My Posts</h2>
-          <Button
-            onClick={handleCreatePost}
-            className="bg-indigo-600 text-white hover:bg-indigo-700">
-            Create Post
-          </Button>
+          <CreateEditPostForm />
         </div>
         <div className="bg-white shadow-md rounded-lg p-6">
-          <Table>
-            <TableCaption>List of posts.</TableCaption>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Post Name</TableHead>
-                <TableHead>Content</TableHead>
-                <TableHead>Tags</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {postsQuery.data?.posts.map((post) => (
-                <TableRow key={post.id}>
-                  <TableCell className="font-medium">
-                    <Link
-                      href={{
-                        pathname: `/blog/${post.id}`
-                      }}>
-                      {post.title}
-                    </Link>
-                  </TableCell>
-                  <TableCell>{post.content.substring(0, 15)}</TableCell>
-                  <TableCell>{post.tags.map((tag) => tag.name).join('')}</TableCell>
-                  <TableCell>
-                    <div className="flex justify-end gap-4">
-                      <Button className="bg-gray-200 text-indigo-600 hover:bg-gray-300">
-                        <PencilIcon />
-                      </Button>
-                      <Button variant="destructive">
-                        <TrashIcon />
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          {postsQuery.data?.posts && <DataTable columns={columns} data={postsQuery.data?.posts} />}
         </div>
       </section>
     </div>

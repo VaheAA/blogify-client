@@ -34,7 +34,7 @@ export function AppHeader() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold text-blue-600">
+        <Link href="/" className="text-4xl font-bold text-blue-600">
           Blogify
         </Link>
 
@@ -43,7 +43,7 @@ export function AppHeader() {
             href={{
               pathname: '/blog'
             }}
-            className="text-gray-600 hover:text-blue-500">
+            className="text-gray-600 hover:text-blue-500 text-lg font-bold">
             Blog
           </Link>
         </nav>

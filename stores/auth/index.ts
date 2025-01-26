@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode'
 interface AuthState {
   token: string | null
   isAuthenticated: boolean
+  isHydrated: boolean // New state to track rehydration
   setToken: (token: string) => void
   clearToken: () => void
   getToken: () => string | null
@@ -14,6 +15,8 @@ export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
       token: null,
+      isAuthenticated: false,
+      isHydrated: false,
       setToken: (token: string) => {
         try {
           const decoded: { exp: number } = jwtDecode(token)
@@ -24,7 +27,6 @@ export const useAuthStore = create<AuthState>()(
         }
       },
       clearToken: () => set({ token: null, isAuthenticated: false }),
-      isAuthenticated: false,
       getToken: () => get().token
     }),
     {
@@ -38,6 +40,7 @@ export const useAuthStore = create<AuthState>()(
             state.isAuthenticated = false
           }
         }
+        if (state) state.isHydrated = true
       }
     }
   )
