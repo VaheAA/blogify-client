@@ -5,6 +5,14 @@ import { IBlogPost } from '@/lib/types'
 import { AppPagination } from '@/components/app/AppPagination'
 import { AppSearch } from '@/components/app/AppSearch'
 import { ITag } from '@/lib/types/blog'
+import { Metadata } from 'next'
+
+export const revalidate = 600
+
+export const metadata: Metadata = {
+  title: 'Blogify | All posts',
+  description: 'Search through thousands of best blogposts right now!'
+}
 
 export default async function Page({ searchParams }: { searchParams: Promise<any> }) {
   const tagsData: ITag[] = await fetch(`${BASE_API_URL}/posts/tags`, {

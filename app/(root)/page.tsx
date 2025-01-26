@@ -3,8 +3,14 @@ import { BASE_API_URL, POSTS_PER_PAGE } from '@/lib/constants'
 import Link from 'next/link'
 import React from 'react'
 import { IBlogPost } from '@/lib/types'
+import { Metadata } from 'next'
 
-export const revalidate = 360
+export const revalidate = 600
+
+export const metadata: Metadata = {
+  title: 'Blogify',
+  description: 'Discover the latest insights, tips, and trends in the world of web development.'
+}
 
 export default async function Page() {
   const { posts }: { posts: IBlogPost[] } = await fetch(
