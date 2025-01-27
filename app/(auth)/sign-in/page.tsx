@@ -38,6 +38,11 @@ export default function Page() {
         referrerPolicy: 'unsafe-url'
       })
 
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message || 'Something went wrong')
+      }
+
       return response.json()
     },
     onSuccess: (data: { access_token: string }) => {
