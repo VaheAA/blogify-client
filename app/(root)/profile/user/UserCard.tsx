@@ -16,8 +16,7 @@ export function UserCard() {
 
   async function fetchUserProfile(): Promise<IUser | null> {
     const res = await fetch(`${BASE_API_URL}/users/profile`, {
-      headers: { Authorization: `Bearer ${token}` },
-      referrerPolicy: 'unsafe-url'
+      headers: { Authorization: `Bearer ${token}` }
     })
 
     if (!res.ok) {
@@ -30,8 +29,7 @@ export function UserCard() {
 
   async function fetchUserPosts(): Promise<{ posts: IBlogPost[]; count: number }> {
     const res = await fetch(`${BASE_API_URL}/posts/my-posts`, {
-      headers: { Authorization: `Bearer ${token}` },
-      referrerPolicy: 'unsafe-url'
+      headers: { Authorization: `Bearer ${token}` }
     })
 
     if (!res.ok) {

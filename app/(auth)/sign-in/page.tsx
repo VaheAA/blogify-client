@@ -34,8 +34,7 @@ export default function Page() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(values),
-        referrerPolicy: 'unsafe-url'
+        body: JSON.stringify(values)
       })
 
       if (!response.ok) {
