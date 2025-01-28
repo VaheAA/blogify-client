@@ -35,10 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 By <span className="font-medium">{post.author.username}</span>
               </span>
             )}{' '}
-            |{' '}
-            {post.updatedAt
-              ? `Updated on ${new Date(post.updatedAt).toLocaleDateString()}`
-              : `Published on ${new Date(post.createdAt!).toLocaleDateString()}`}
+            | {post.createdAt && `Published on ${new Date(post.createdAt!).toLocaleDateString()}`}
           </p>
           <div className="prose prose-lg max-w-none text-gray-700 mb-6">
             <p>{post.content}</p>
