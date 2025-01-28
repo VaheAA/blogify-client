@@ -13,7 +13,11 @@ export const columns: ColumnDef<IBlogPost>[] = [
   },
   {
     accessorKey: 'content',
-    header: 'Content'
+    header: 'Content',
+    cell: ({ row }) => {
+      const content = row.getValue('content') as string
+      return <span>{content.substring(0, 100)}...</span>
+    }
   },
   {
     accessorKey: 'tags',

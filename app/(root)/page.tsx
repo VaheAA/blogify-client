@@ -13,11 +13,12 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const { posts }: { posts: IBlogPost[] } = await fetch(`${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`).then((res) => res.json())
+  const { posts }: { posts: IBlogPost[] } = await fetch(
+    `${BASE_API_URL}/posts?limit=${POSTS_PER_PAGE}`
+  ).then((res) => res.json())
 
   return (
     <div>
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white">
         <div className="relative z-10 container mx-auto px-6 py-24 text-center">
           <h1 className="text-5xl font-extrabold mb-4">

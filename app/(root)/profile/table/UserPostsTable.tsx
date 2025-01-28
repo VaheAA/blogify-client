@@ -34,6 +34,7 @@ import { BASE_API_URL } from '@/lib/constants'
 import { useToast } from '@/hooks/use-toast'
 import { IBlogPost } from '@/lib/types'
 import { useEditPostStore } from '@/stores'
+import { revalidatePosts } from '@/app/actions'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -73,7 +74,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
         duration: 4000
       })
       setIsDialogOpen(false)
-      await queryClient.invalidateQueries({ queryKey: ['posts'] })
+      await queryClient.invalidateQueries({ queryKey: ['userData'] })
     },
     onError: (error: Error) => {
       toast({
@@ -89,6 +90,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     if (!selectedPostId) return
 
     mutation.mutate(selectedPostId)
+    revalidatePosts()
   }
 
   return (

@@ -3,7 +3,6 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger
@@ -23,7 +22,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useEditPostStore } from '@/stores'
 import { AppTextarea } from '@/components/app/AppTextarea'
-import { createPost } from '@/app/actions' 
+import { revalidatePosts } from '@/app/actions'
 
 export function CreateEditPostForm() {
   const { post, isDialogOpen, closeDialog, openDialog } = useEditPostStore()
@@ -82,7 +81,7 @@ export function CreateEditPostForm() {
         duration: 4000
       })
       closeDialog()
-      await queryClient.invalidateQueries({ queryKey: ['posts'] })
+      await queryClient.invalidateQueries({ queryKey: ['userData'] })
       reset()
     },
     onError: (error: Error) => {
@@ -98,7 +97,7 @@ export function CreateEditPostForm() {
 
   const onSubmit: SubmitHandler<TCreateEditPost> = (values) => {
     mutation.mutate(values)
-    createPost()
+    revalidatePosts()
   }
 
   return (
@@ -111,10 +110,6 @@ export function CreateEditPostForm() {
       <DialogContent hideCloseButton={true}>
         <DialogHeader>
           <DialogTitle>Create a new Post</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your account and remove your
-            data from our servers.
-          </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit(onSubmit)}>

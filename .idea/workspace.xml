@@ -6,10 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d4a110fc-68d0-4b8e-b9ab-a847dbd98a39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/profile/table/UserPostsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/profile/table/UserPostsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/profile/table/column.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/profile/table/column.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/profile/user/UserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/profile/user/UserCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/posts/CreatePostForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/posts/CreatePostForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/hooks/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/user-auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/hooks/useApi.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +32,12 @@
     &quot;assignee&quot;: &quot;VaheAA&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/VaheAA/blogify-client.git",
-    "accountId": "34299dbe-6d67-4cbb-bc7f-996cd7eb0bbf"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/VaheAA/blogify-client.git&quot;,
+    &quot;accountId&quot;: &quot;34299dbe-6d67-4cbb-bc7f-996cd7eb0bbf&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -51,9 +58,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/vaheaa/.nvm/versions/node/v22.12.0/bin/node",
+    "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/vaheaa/Documents/GitHub/blogify/client/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "/home/dev/Documents/blogify/blogify-client/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.nodejs",
     "ts.external.directory.path": "/home/dev/Documents/blogify/blogify-client/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -93,6 +100,10 @@
       <workItem from="1737805179170" duration="8228000" />
       <workItem from="1737815254307" duration="6570000" />
       <workItem from="1737879838750" duration="26068000" />
+      <workItem from="1737959916351" duration="19000" />
+      <workItem from="1737966362216" duration="316000" />
+      <workItem from="1737982628455" duration="686000" />
+      <workItem from="1738047495210" duration="5286000" />
     </task>
     <servers />
   </component>

@@ -55,17 +55,15 @@ export default async function Page({ searchParams }: { searchParams: Promise<any
   const totalPages = Math.ceil(total / POSTS_PER_PAGE)
 
   return (
-    <div className="container mx-auto px-6 py-8">
+    <div className="container mx-auto px-6 py-12">
       <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-800">All Posts</h1>
       <AppSearch options={parsedTags} />
 
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        {posts.length > 0 ? (
-          <PostList posts={posts} />
-        ) : (
-          <p className="text-gray-500 text-center">No posts found. Try refining your search.</p>
-        )}
-      </div>
+      {posts.length ? (
+        <PostList posts={posts} />
+      ) : (
+        <p className="text-gray-500 text-center">No posts found. Try refining your search.</p>
+      )}
 
       <AppPagination hasNextPage={end < total} hasPrevPage={start > 0} totalPages={totalPages} />
     </div>
