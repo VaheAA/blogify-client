@@ -22,11 +22,12 @@ export const columns: ColumnDef<IBlogPost>[] = [
   {
     accessorKey: 'tags',
     header: 'Tags',
+    maxSize: 200,
     cell: ({ row }) => {
       const tags: ITag[] = row.getValue('tags')
 
       return (
-        <div className="flex flex-wrap gap-2 items-center">
+        <div className="flex flex-wrap gap-2 items-center w-full">
           {tags.map((tag, index) => (
             <AppTag tag={tag} key={index} />
           ))}
@@ -46,14 +47,13 @@ export const columns: ColumnDef<IBlogPost>[] = [
   {
     id: 'actions',
     header: 'Actions',
-    size: 100,
     // Find a way to customize cellContext props
     cell: ({ row, openDeleteDialog, setEditingPost }: any) => {
       const post = row.original
 
       return (
-        <div className="flex gap-2 items-center">
-          <Button variant="outline" size="icon" className="w-full p-1" asChild>
+        <div className="flex flex-col md:flex-row gap-2 items-center">
+          <Button variant="outline" size="icon" className="w-12" asChild>
             <Link
               href={{
                 pathname: `blog/${post.id}`
@@ -64,7 +64,7 @@ export const columns: ColumnDef<IBlogPost>[] = [
 
           <Button
             size="icon"
-            className="w-full p-1 bg-indigo-600 text-white hover:bg-indigo-700"
+            className="w-12 bg-indigo-600 text-white hover:bg-indigo-700"
             onClick={() => setEditingPost(post)}>
             <EditIcon />
           </Button>
@@ -72,7 +72,7 @@ export const columns: ColumnDef<IBlogPost>[] = [
             type="button"
             variant="destructive"
             size="icon"
-            className="w-full p-1"
+            className="w-12"
             onClick={() => openDeleteDialog(post.id)}>
             <DeleteIcon />
           </Button>
