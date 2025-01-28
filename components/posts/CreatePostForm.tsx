@@ -107,7 +107,7 @@ export function CreateEditPostForm() {
           Create Post
         </Button>
       </DialogTrigger>
-      <DialogContent hideCloseButton={true}>
+      <DialogContent hideCloseButton={true} className="max-w-[800px] w-[90%] md:w-full">
         <DialogHeader>
           <DialogTitle>Create a new Post</DialogTitle>
         </DialogHeader>

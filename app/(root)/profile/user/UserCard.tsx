@@ -71,7 +71,7 @@ export function UserCard() {
           <h2 className="text-2xl font-bold text-gray-800">My Posts</h2>
           <CreateEditPostForm />
         </div>
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="bg-white shadow-md rounded-lg p-1 md:p-4 lg:p-6">
           {data?.posts?.posts && <DataTable columns={columns} data={data.posts.posts} />}
         </div>
       </section>

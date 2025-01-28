@@ -6,7 +6,7 @@ import React from 'react'
 interface AppTextareaProps {
   id: string
   label: string
-  type?: string
+  rows?: number
   placeholder?: string
   error?: string | FieldError
   register?: ReturnType<UseFormRegister<Record<string, never>>>
@@ -15,7 +15,7 @@ interface AppTextareaProps {
 export function AppTextarea({
   id,
   label,
-  type = 'text',
+  rows = 10,
   placeholder = '',
   error,
   register
@@ -24,9 +24,9 @@ export function AppTextarea({
     <div className="space-y-1">
       <Label htmlFor={id}>{label}</Label>
       <Textarea
+        rows={rows}
         className="transition duration-300"
         id={id}
-        type={type}
         placeholder={placeholder}
         {...register(id)}
       />
