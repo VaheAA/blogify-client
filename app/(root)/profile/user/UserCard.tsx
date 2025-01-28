@@ -9,6 +9,7 @@ import { CreateEditPostForm } from '@/components/posts/CreatePostForm'
 import { DataTable } from '@/app/(root)/profile/table/UserPostsTable'
 import { columns } from '@/app/(root)/profile/table/column'
 import withAuth from '@/components/HOC/withAuth'
+import { AppLoader } from '@/components/app/AppLoader'
 
 export function UserCard() {
   const { getToken } = useAuthStore()
@@ -46,14 +47,17 @@ export function UserCard() {
     }
   }
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['userData'],
     queryFn: fetchUserData,
     retry: false
   })
 
+  const isLoadiing = true
+
   return (
-    <>
+    <div className="relative">
+      {isLoading && <AppLoader />}
       <section className="mb-12">
         <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg p-6 shadow-md">
           <h1 className="text-3xl font-bold mb-4">Welcome, {data?.user?.username || 'User'}!</h1>
@@ -71,7 +75,7 @@ export function UserCard() {
           {data?.posts?.posts && <DataTable columns={columns} data={data.posts.posts} />}
         </div>
       </section>
-    </>
+    </div>
   )
 }
 

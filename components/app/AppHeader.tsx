@@ -2,7 +2,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { AppMenu } from '@/components/app/AppMenu'
-import { Button } from '@/components/ui/button'
 
 export function AppHeader() {
   return (
