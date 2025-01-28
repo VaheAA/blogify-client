@@ -6,7 +6,7 @@ import { jwtDecode } from 'jwt-decode'
 
 export const useAuth = () => {
   const router = useRouter()
-  const { isAuthenticated, isHydrated, clearToken, getToken } = useAuthStore()
+  const { isHydrated, clearToken, getToken } = useAuthStore()
 
   useEffect(() => {
     const checkTokenValidity = () => {
@@ -14,8 +14,11 @@ export const useAuth = () => {
       if (token) {
         try {
           const decoded: { exp: number } = jwtDecode(token)
-          const isValid = decoded.exp * 1000 > Date.now()
-          if (!isValid) {
+          const currentTime = Date.now()
+          const expirationTime = decoded.exp * 1000
+          const bufferTime = 5 * 60 * 1000
+
+          if (expirationTime - bufferTime <= currentTime) {
             toast({
               variant: 'destructive',
               title: 'Session expired. Logging out...'
@@ -23,10 +26,11 @@ export const useAuth = () => {
             clearToken()
             router.push('/sign-in')
           }
-        } catch {
+        } catch (error) {
+          console.error('Token decoding failed:', error)
           toast({
             variant: 'destructive',
-            title: "'Invalid token. Logging out...'"
+            title: 'Invalid token. Logging out...'
           })
           clearToken()
           router.push('/sign-in')
@@ -35,11 +39,9 @@ export const useAuth = () => {
     }
 
     if (isHydrated) {
-      checkTokenValidity()
+      checkTokenValidity() // Initial check
+      const interval = setInterval(checkTokenValidity, 1000)
+      return () => clearInterval(interval)
     }
-
-    const interval = setInterval(checkTokenValidity, 60000)
-
-    return () => clearInterval(interval)
-  }, [isAuthenticated, isHydrated, clearToken, getToken, router])
+  }, [isHydrated, clearToken, getToken, router])
 }
