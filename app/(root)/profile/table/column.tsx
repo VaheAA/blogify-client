@@ -16,7 +16,7 @@ export const columns: ColumnDef<IBlogPost>[] = [
     header: 'Content',
     cell: ({ row }) => {
       const content = row.getValue('content') as string
-      return <span>{content.substring(0, 100)}...</span>
+      return <span className="max-w-[400px] block">{content.substring(0, 100)}...</span>
     }
   },
   {
@@ -46,6 +46,7 @@ export const columns: ColumnDef<IBlogPost>[] = [
   {
     id: 'actions',
     header: 'Actions',
+    size: 100,
     // Find a way to customize cellContext props
     cell: ({ row, openDeleteDialog, setEditingPost }: any) => {
       const post = row.original

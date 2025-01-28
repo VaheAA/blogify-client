@@ -40,9 +40,7 @@ export function PostCard({ post }: PostCardProps) {
 
       {/* Post Date */}
       <p className="text-xs text-gray-400 mb-4">
-        {post.updatedAt
-          ? `Updated on ${new Date(post.updatedAt).toLocaleDateString()}`
-          : `Published on ${new Date(post.createdAt!).toLocaleDateString()}`}
+        {post.createdAt && `Published on ${new Date(post.createdAt!).toLocaleDateString()}`}
       </p>
     </div>
   )
