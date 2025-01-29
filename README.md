@@ -11,9 +11,9 @@ This is the frontend of the Blogify application, built with [Next.js 15](https:/
 
 ## Tech Stack
 - **Framework**: [Next.js 15](https://nextjs.org/)
-- **Styling**: [ShadCN](https://shadcn.dev/) and [Tailwind CSS](https://tailwindcss.com/)
-- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
-- **Data Fetching**: [React Query](https://react-query.tanstack.com/)
+- **Styling**: [ShadCN]([https://shadcn.dev](https://ui.shadcn.com/)/) and [Tailwind CSS](https://tailwindcss.com/)
+- **State Management**: [Zustand](https://zustand.docs.pmnd.rs/)
+- **Data Fetching**: [React Query](https://tanstack.com/query/latest)
 
 ## Installation
 
